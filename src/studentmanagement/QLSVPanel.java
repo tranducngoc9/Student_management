@@ -4,16 +4,47 @@ import Helper.MessageDialogHelper;
 import Helper.DataValidator;
 import model.SinhVien;
 import Dao.SinhVienDao;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class QLSVPanel extends javax.swing.JPanel {
     
     private MainForm parentForm;
+    private DefaultTableModel tbModel;
     /**
      * Creates new form QLSVPanel
      */
     public QLSVPanel() {
-        initComponents();
+        initComponents();  // Khoi tao Gui mac dinh
+        initTable();       // Khoi tao Gui bang
+        loadDataToTable(); // Load cac gia tri cua bang
+        
+    }
+    
+    private void initTable(){
+        tbModel = new DefaultTableModel();
+        tbModel.setColumnIdentifiers(new String[]{"Ma Sinh Vien", "Ho Ten", "Email", "SoDT"," GioiTinh", "Dia Chi"}); // THiet lap ten cac cot
+        tblStudent.setModel(tbModel); // Xet toi bang student
+        
+    }
+    private void loadDataToTable(){
+        try{
+            SinhVienDao dao = new SinhVienDao(); // Khoi tao class SinhVienDao
+            List<SinhVien> list = dao.findAll(); // Lay danh sach sinh vien
+            tbModel.setRowCount(0); // Xoa cac cai dang hien thi tren bang va cho phep ta hien thi lai
+            for(SinhVien it : list){
+                tbModel.addRow(new Object[]{
+                    it.getMaSinhVien(), it.getHoTen(), it.getEmail(), it.getSoDT(), 
+                    it.getGioiTinh()==1 ? "Nam" : "Nu" , it.getDiaChi()
+                });
+                
+            }
+            } catch( Exception e){
+                    e.printStackTrace();
+                    MessageDialogHelper.showErrorDialog(parentForm, e.getMessage(), "Error");
+                    
+        }
     }
 
     /**
@@ -115,6 +146,11 @@ public class QLSVPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblStudent.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblStudentMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblStudent);
 
         jTabbedPane1.addTab("tab1", jScrollPane2);
@@ -285,7 +321,29 @@ public class QLSVPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        // Kiem tra xem o co bi trong hay khong
+        StringBuilder sb = new StringBuilder();
+        DataValidator.ValidateEmpty(txtStudentID, sb," Ma sv trong");
+        if (sb.length() > 0) {
+            MessageDialogHelper.showErrorDialog(parentForm,"Thong bao!", sb.toString());
+        }
+        if (MessageDialogHelper.showConfirmDialog(parentForm, "Hoi", "Ban co muon xoa hay khong?") == JOptionPane.NO_OPTION) {
+            return;
+        }
+        try {
+            SinhVienDao svdao = new SinhVienDao();
+            //Chen vao database
+            if( svdao.delete(txtStudentID.getText())){
+                MessageDialogHelper.showMessageDialog(parentForm, "Thong bao", "Da xoa thong tin sinh vien!");
+                btnNewActionPerformed(evt);                //Xoa trang cac ô
+                loadDataToTable();   //Load lai bang
+            }
+            else{
+                MessageDialogHelper.showErrorDialog(parentForm, "Thong bao", "Chua duoc xoa do loi!");
+            }
+        } catch (Exception e) {
+            MessageDialogHelper.showErrorDialog(parentForm, "Thong bao", e.getMessage());
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
@@ -310,6 +368,7 @@ public class QLSVPanel extends javax.swing.JPanel {
             //Chen vao database
             if( svdao.insert(sv) && !"".equals(txtStudentID.getText()) && !"".equals(txtName.getText())){
                 MessageDialogHelper.showMessageDialog(parentForm, "Thong bao!", "Sinh vien da duoc luu!");
+                loadDataToTable(); // Load lai bang
             }
             else{
                 MessageDialogHelper.showErrorDialog(parentForm, "Thong bao!", "Sinh vien chua duoc them do loi!");
@@ -345,6 +404,7 @@ public class QLSVPanel extends javax.swing.JPanel {
             //Chen vao database
             if( svdao.update(sv)){
                 MessageDialogHelper.showMessageDialog(parentForm, "Thong bao", "Da cap nhat thong tin sinh vien!");
+                loadDataToTable(); // Load lai bang
             }
             else{
                 MessageDialogHelper.showErrorDialog(parentForm, "Thong bao", "Chua duoc cap nhat do loi!");
@@ -353,6 +413,31 @@ public class QLSVPanel extends javax.swing.JPanel {
             MessageDialogHelper.showErrorDialog(parentForm, "Thong bao", e.getMessage());
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
+    // Clisk 1 dong tren bang thi nó se hien thong tin len cac thanh dien
+    private void tblStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblStudentMouseClicked
+        try {
+            int row = tblStudent.getSelectedRow();
+            // Neu Row >= 0 thi chon bat ki  hang nao tren bang; con neu < 0 thi chua chon hang nao
+            if( row >= 0){
+                String id = (String) tblStudent.getValueAt(row, 0); // Tai Row va cot dau tien
+                SinhVienDao dao = new SinhVienDao();
+                SinhVien sv =  dao.findID(id);
+                
+                if (sv != null) {
+                    txtStudentID.setText(sv.getMaSinhVien());
+                    txtName.setText(sv.getHoTen());
+                    txtEmail.setText(sv.getEmail());
+                    txtPhone.setText(sv.getSoDT());
+                    txaAddress.setText(sv.getDiaChi());
+                    rdbMale.setSelected(sv.getGioiTinh()==1);  
+                    loadDataToTable();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageDialogHelper.showErrorDialog(parentForm, "Thong bao", e.getMessage());
+        }
+    }//GEN-LAST:event_tblStudentMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

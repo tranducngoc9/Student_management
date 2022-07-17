@@ -4,6 +4,10 @@ import model.SinhVien;
 import java.sql.Connection;
 import Helper.DatabaseHelper;
 import  java.sql.PreparedStatement;
+import  java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SinhVienDao {
     public boolean insert(SinhVien sv) throws Exception{
@@ -39,4 +43,65 @@ public class SinhVienDao {
             return pstmt.executeUpdate() > 0 ;
         }
     }
+    public boolean delete(String maSinhVien) throws Exception{
+
+        String sql  =  "DELETE FROM `appquanlysv`.`sinhvien` WHERE (`MaSinhVien` = ?)";
+        try(
+            Connection con = DatabaseHelper.ConnectDatabase();
+            PreparedStatement pstmt = con.prepareStatement(sql);)
+        {
+            pstmt.setString(1, maSinhVien);
+            return pstmt.executeUpdate() > 0 ;
+        }
+    }
+    public SinhVien findID(String maSinhVien) throws Exception{
+
+        String sql  =  "SELECT * FROM appquanlysv.sinhvien where MaSinhVien = ?";
+        try(
+            Connection con = DatabaseHelper.ConnectDatabase();
+            PreparedStatement pstmt = con.prepareStatement(sql);)
+        {
+            pstmt.setString(1, maSinhVien);
+            try(ResultSet rs = pstmt.executeQuery()){   // So sanh
+                if(rs.next()){
+                    SinhVien sv = createSinhVien(rs);
+                    return sv;
+                    }
+
+            }
+            return null;  // Neu mà tim khong thay thi tra ve null
+        }
+    }
+
+    private SinhVien createSinhVien(final ResultSet rs) throws SQLException {
+        SinhVien sv = new SinhVien();
+        sv.setMaSinhVien(rs.getString(1));
+        sv.setHoTen(rs.getString(2));
+        sv.setEmail(rs.getString(3));
+        sv.setSoDT(rs.getString(4));
+        sv.setGioiTinh(rs.getInt(5));
+        sv.setDiaChi(rs.getString(6));
+        return sv;
+    }
+
+
+    public List< SinhVien> findAll() throws Exception{
+
+        String sql  =  "SELECT * FROM appquanlysv.sinhvien";
+        try(
+            Connection con = DatabaseHelper.ConnectDatabase();
+            PreparedStatement pstmt = con.prepareStatement(sql);)
+        {
+            try(ResultSet rs = pstmt.executeQuery()){
+                List<SinhVien> list = new ArrayList<>();
+                while(rs.next()){
+                    SinhVien sv = createSinhVien(rs);
+                    list.add(sv);
+                    }
+                return list;
+
+            }
+        }
+    }
+    
 }
