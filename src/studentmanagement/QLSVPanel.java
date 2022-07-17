@@ -429,7 +429,11 @@ public class QLSVPanel extends javax.swing.JPanel {
                     txtEmail.setText(sv.getEmail());
                     txtPhone.setText(sv.getSoDT());
                     txaAddress.setText(sv.getDiaChi());
-                    rdbMale.setSelected(sv.getGioiTinh()==1);  
+                    if (sv.getGioiTinh() == 1){
+                        rdbMale.setSelected(true);
+                    }
+                    else rdbFemale.setSelected(true);
+                    
                     loadDataToTable();
                 }
             }
