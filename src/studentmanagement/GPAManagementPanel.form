@@ -6,6 +6,9 @@
       <Color blue="ff" green="33" red="33" type="rgb"/>
     </Property>
   </Properties>
+  <Events>
+    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtEnglishFocusLost"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -127,6 +130,7 @@
             <Property name="text" type="java.lang.String" value="Tim Kiem"/>
           </Properties>
           <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtEnglishFocusLost"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
           </Events>
         </Component>
@@ -263,16 +267,26 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtStudentID">
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtStudentIDFocusLost"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStudentIDActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtName">
             </Component>
             <Component class="javax.swing.JTextField" name="txtMath">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtEnglishFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtVan">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtEnglishFocusLost"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEnglish">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtEnglishFocusLost"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -355,6 +369,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Luu"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>
@@ -363,6 +380,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Xoa"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
@@ -371,6 +391,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cap nhat"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnNew">
       <Properties>
@@ -379,6 +402,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Nhap Moi"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
