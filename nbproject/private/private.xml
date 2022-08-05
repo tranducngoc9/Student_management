@@ -5,8 +5,9 @@
         <group>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/Student_management/src/studentmanagement/GPAManagementPanel.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/Student_management/src/Dao/BangDiemDao.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/Student_management/src/studentmanagement/MainForm.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/Student_management/src/Dao/SinhVienDao.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/Student_management/src/model/BangDiem.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/Student_management/src/studentmanagement/QLSVPanel.java</file>
         </group>
     </open-files>
 </project-private>

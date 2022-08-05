@@ -79,15 +79,13 @@ public class BangDiemDao {
         }
     }
     
-    public List<BangDiem> findAll(String maSinhVien) throws Exception{
+    public List<BangDiem> findAll() throws Exception{
 
         String sql  =  "SELECT * FROM appquanlysv.ketqua";
         try(
             Connection con = DatabaseHelper.ConnectDatabase();
             PreparedStatement pstmt = con.prepareStatement(sql);)
         {
-            pstmt.setString(1, maSinhVien);
-            
             try(ResultSet rs = pstmt.executeQuery();){
                 List<BangDiem> list = new ArrayList<>();
                 while (rs.next()) {
