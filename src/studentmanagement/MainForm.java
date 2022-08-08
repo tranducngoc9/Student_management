@@ -51,13 +51,14 @@ public class MainForm extends javax.swing.JFrame {
         gioithieu = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Phần mềm Quản lý sinh viên");
 
         jToolBar1.setBackground(new java.awt.Color(0, 51, 255));
         jToolBar1.setRollover(true);
         jToolBar1.add(jSeparator11);
 
         tbrLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/logout-icon-32.png"))); // NOI18N
-        tbrLogout.setText("Dang Xuat");
+        tbrLogout.setText("Đăng xuất");
         tbrLogout.setFocusable(false);
         tbrLogout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         tbrLogout.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -79,7 +80,7 @@ public class MainForm extends javax.swing.JFrame {
         jToolBar1.add(jSeparator6);
 
         QLSVbigIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/10207-man-student-light-skin-tone-icon-32.png"))); // NOI18N
-        QLSVbigIcon.setText("Quan Ly Sinh Vien");
+        QLSVbigIcon.setText("Quán lý sinh viên");
         QLSVbigIcon.setFocusable(false);
         QLSVbigIcon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         QLSVbigIcon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -92,7 +93,7 @@ public class MainForm extends javax.swing.JFrame {
         jToolBar1.add(jSeparator8);
 
         GPAiconBig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/gpa-icon-32.png"))); // NOI18N
-        GPAiconBig.setText("Quan Ly Diem");
+        GPAiconBig.setText("Quản lý điểm");
         GPAiconBig.setFocusable(false);
         GPAiconBig.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         GPAiconBig.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -105,7 +106,7 @@ public class MainForm extends javax.swing.JFrame {
         jToolBar1.add(jSeparator9);
 
         tbrAboutUs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Actions-help-about-icon-32.png"))); // NOI18N
-        tbrAboutUs.setText("Gioi Thieu");
+        tbrAboutUs.setText("Giới thiệu");
         tbrAboutUs.setFocusable(false);
         tbrAboutUs.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         tbrAboutUs.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -120,11 +121,11 @@ public class MainForm extends javax.swing.JFrame {
         tplMainBoard.setBackground(new java.awt.Color(255, 255, 255));
 
         HeThong.setBackground(new java.awt.Color(255, 153, 0));
-        HeThong.setText("He Thong");
+        HeThong.setText("Hệ thống");
 
         mnuLogout.setBackground(new java.awt.Color(255, 153, 0));
         mnuLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/logout-icon-16.png"))); // NOI18N
-        mnuLogout.setText("Dang Xuat");
+        mnuLogout.setText("Đăng xuất");
         mnuLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuLogoutActionPerformed(evt);
@@ -135,7 +136,7 @@ public class MainForm extends javax.swing.JFrame {
 
         Thoat.setBackground(new java.awt.Color(255, 153, 0));
         Thoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Actions-edit-delete-icon-16.png"))); // NOI18N
-        Thoat.setText("Thoat");
+        Thoat.setText("Thoát");
         Thoat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ThoatActionPerformed(evt);
@@ -146,11 +147,11 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenuBar1.add(HeThong);
 
-        mnQuanLy.setText("Quan ly");
+        mnQuanLy.setText("Quản lý");
 
         muQLSV.setBackground(new java.awt.Color(255, 153, 0));
         muQLSV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/10207-man-student-light-skin-tone-icon-16.png"))); // NOI18N
-        muQLSV.setText("Quan Ly Sinh Vien");
+        muQLSV.setText("Quản lý sinh viên");
         muQLSV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 muQLSVActionPerformed(evt);
@@ -161,7 +162,7 @@ public class MainForm extends javax.swing.JFrame {
 
         mnuManageGPA.setBackground(new java.awt.Color(255, 153, 0));
         mnuManageGPA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/gpa-icon.png"))); // NOI18N
-        mnuManageGPA.setText("Quan Ly Diem");
+        mnuManageGPA.setText("Quản lý điểm");
         mnuManageGPA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuManageGPAActionPerformed(evt);
@@ -171,11 +172,11 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenuBar1.add(mnQuanLy);
 
-        TroGiup.setText("Tro Giup");
+        TroGiup.setText("Trợ giúp");
 
         NoiDung.setBackground(new java.awt.Color(255, 153, 0));
         NoiDung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Actions-help-about-icon-16.png"))); // NOI18N
-        NoiDung.setText("Noi Dung");
+        NoiDung.setText("Nội dung");
         NoiDung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NoiDungActionPerformed(evt);
@@ -186,7 +187,7 @@ public class MainForm extends javax.swing.JFrame {
 
         gioithieu.setBackground(new java.awt.Color(255, 153, 0));
         gioithieu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Help-icon-16.png"))); // NOI18N
-        gioithieu.setText("Gioi Thieu");
+        gioithieu.setText("Giới thiệu");
         gioithieu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gioithieuActionPerformed(evt);
@@ -233,7 +234,7 @@ public class MainForm extends javax.swing.JFrame {
         if(mStudentPanel == null){
         mStudentPanel = new QLSVPanel();
         ImageIcon icon = new ImageIcon(getClass().getResource("/iconset4/10207-man-student-light-skin-tone-icon-16.png"));
-        tplMainBoard.addTab("Quan Ly Sinh Vien", icon, mStudentPanel, "Quan Ly Sinh Vien");
+        tplMainBoard.addTab("Quản lý sinh viên", icon, mStudentPanel, "Quản lý sinh viên");
         }
         tplMainBoard.setSelectedComponent(mStudentPanel);   
     }//GEN-LAST:event_muQLSVActionPerformed
@@ -242,7 +243,7 @@ public class MainForm extends javax.swing.JFrame {
         if(mGPAPanel == null){
             mGPAPanel = new  GPAManagementPanel();
             ImageIcon icon = new ImageIcon(getClass().getResource("/iconset4/gpa-icon.png"));
-            tplMainBoard.addTab("Quan Ly Diem", icon,mGPAPanel,"Quan Ly Diem" );
+            tplMainBoard.addTab("Quản lý điểm", icon,mGPAPanel,"Quản lý điểm" );
         }
         tplMainBoard.setSelectedComponent(mGPAPanel);
     }//GEN-LAST:event_mnuManageGPAActionPerformed
@@ -260,7 +261,7 @@ public class MainForm extends javax.swing.JFrame {
         if(mStudentPanel == null){
         mStudentPanel = new QLSVPanel();
         ImageIcon icon = new ImageIcon(getClass().getResource("/iconset4/10207-man-student-light-skin-tone-icon-16.png"));
-        tplMainBoard.addTab("Quan Ly Sinh Vien", icon, mStudentPanel, "Quan Ly Sinh Vien");
+        tplMainBoard.addTab("Quản lý sinh viên", icon, mStudentPanel, "Quản lý sinh viên");
         }
         tplMainBoard.setSelectedComponent(mStudentPanel);
     }//GEN-LAST:event_QLSVbigIconActionPerformed
@@ -269,7 +270,7 @@ public class MainForm extends javax.swing.JFrame {
         if(mGPAPanel == null){
             mGPAPanel = new  GPAManagementPanel();
             ImageIcon icon = new ImageIcon(getClass().getResource("/iconset4/gpa-icon.png"));
-            tplMainBoard.addTab("Quan Ly Diem", icon,mGPAPanel,"Quan Ly Diem" );
+            tplMainBoard.addTab("Quản lý điểm", icon,mGPAPanel,"Quản lý điểm" );
         }
         tplMainBoard.setSelectedComponent(mGPAPanel);
     }//GEN-LAST:event_GPAiconBigActionPerformed

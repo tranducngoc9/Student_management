@@ -26,19 +26,27 @@ public class loginDialog extends javax.swing.JDialog {
         lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Đăng nhập");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Ten Dang Nhap:");
+        jLabel2.setText("Tên đăng nhập");
+
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameActionPerformed(evt);
+            }
+        });
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Mat Khau:");
+        jLabel3.setText("Mật khẩu");
 
         btnLogin.setBackground(new java.awt.Color(255, 153, 0));
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Login-icon-16.png"))); // NOI18N
-        btnLogin.setText("Dang Nhap");
+        btnLogin.setText("Đăng nhập");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -47,7 +55,7 @@ public class loginDialog extends javax.swing.JDialog {
 
         btnClose.setBackground(new java.awt.Color(255, 153, 0));
         btnClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Button-Close-icon-16.png"))); // NOI18N
-        btnClose.setText("Thoat");
+        btnClose.setText("Thoát");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCloseActionPerformed(evt);
@@ -69,8 +77,9 @@ public class loginDialog extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(btnLogin)
-                        .addGap(28, 28, 28)
-                        .addComponent(btnClose))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnClose)
+                        .addGap(20, 20, 20))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
@@ -83,7 +92,7 @@ public class loginDialog extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,15 +101,15 @@ public class loginDialog extends javax.swing.JDialog {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogin)
                     .addComponent(btnClose))
-                .addGap(27, 27, 27))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblLogo.setBackground(new java.awt.Color(51, 51, 255));
@@ -141,22 +150,23 @@ public class loginDialog extends javax.swing.JDialog {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         StringBuilder sb = new StringBuilder();  // sb cho phep luu thon gbao kism tra cac dieu kien
         // Kiem tra ten dang nhap va mat khau xem cos nhap vao hay khong
-        DataValidator.ValidateEmpty(txtUsername, sb, "Ten dang nhap trong ");
-        DataValidator.ValidateEmpty(txtPassWord, sb, "Mat khau trong");
+        DataValidator.ValidateEmpty(txtUsername, sb, "Tên đăng nhập trống ");
+        DataValidator.ValidateEmpty(txtPassWord, sb, "Mật khẩu trống");
         if(sb.length() > 0){
-            MessageDialogHelper.showErrorDialog( this, sb.toString(), "Error");
+            MessageDialogHelper.showErrorDialog( this, "Thông báo", sb.toString());
             return;
         }
 
         NguoiDungDao dao = new NguoiDungDao();
         System.out.println(txtUsername.getText());
         System.out.println(new String(txtPassWord.getPassword()));
-        
+
         try {
             NguoiDung nd =  dao.checkLogin(txtUsername.getText(), new String(txtPassWord.getPassword()) );
             System.out.println(nd);
             if (nd == null){
-                MessageDialogHelper.showErrorDialog(this, "Thong bao", "Ten dang nhap sai hoac mat khau sai");
+//                Sửa đảo vị trí hiển thị title và content
+                MessageDialogHelper.showErrorDialog(this, "Thông báo", "Sai tên đăng nhập hoặc mật khẩu"); 
             }
             else{
                 this.dispose();
@@ -165,8 +175,11 @@ public class loginDialog extends javax.swing.JDialog {
         } catch (Exception e) {
             MessageDialogHelper.showErrorDialog(this, e.getMessage(), "Error");
         }
-        
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

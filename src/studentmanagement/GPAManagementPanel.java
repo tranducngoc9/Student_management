@@ -24,7 +24,7 @@ public class GPAManagementPanel extends javax.swing.JPanel {
     private void iniTable(){
         tblModel = new DefaultTableModel();
         tblModel.setColumnIdentifiers(new String[]{
-            "Ma sinh vien", "Toan", "Van", "Tieng Anh", "Diem TB"});
+            "Mã sinh viên", "Toán", "Văn", "Tiếng Anh", "Diểm trung bình"});
         
         tblGPA.setModel(tblModel);
     }
@@ -89,7 +89,7 @@ public class GPAManagementPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Ma Sinh Vien:");
+        jLabel1.setText("Mã sinh viên");
 
         txtStudentIDSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +98,7 @@ public class GPAManagementPanel extends javax.swing.JPanel {
         });
 
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/search-icon-16.png"))); // NOI18N
-        btnSearch.setText("Tim Kiem");
+        btnSearch.setText("Tìm kiếm");
         btnSearch.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtEnglishFocusLost(evt);
@@ -137,13 +137,13 @@ public class GPAManagementPanel extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(51, 51, 255));
         jPanel2.setForeground(new java.awt.Color(0, 51, 255));
 
-        jLabel2.setText("Ma Sinh Vien:");
+        jLabel2.setText("Mã sinh viên");
 
-        jLabel3.setText("Ho Va Ten:");
+        jLabel3.setText("Họ và tên");
 
-        jLabel4.setText("Toan:");
+        jLabel4.setText("Toán");
 
-        jLabel5.setText("Van:");
+        jLabel5.setText("Văn");
 
         jLabel6.setText("Anh:");
 
@@ -233,7 +233,7 @@ public class GPAManagementPanel extends javax.swing.JPanel {
 
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Diem TB");
+        jLabel7.setText("Điểm trung bình");
 
         lblGPA.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblGPA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -244,10 +244,10 @@ public class GPAManagementPanel extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblGPA, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblGPA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -332,7 +332,7 @@ public class GPAManagementPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblGPA);
 
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Save-icon.png"))); // NOI18N
-        btnSave.setText("Luu");
+        btnSave.setText("Lưu");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -340,7 +340,7 @@ public class GPAManagementPanel extends javax.swing.JPanel {
         });
 
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Actions-edit-delete-icon-16.png"))); // NOI18N
-        btnDelete.setText("Xoa");
+        btnDelete.setText("Xoá");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -348,7 +348,7 @@ public class GPAManagementPanel extends javax.swing.JPanel {
         });
 
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Actions-document-edit-icon-16.png"))); // NOI18N
-        btnUpdate.setText("Cap nhat");
+        btnUpdate.setText("Cập nhật");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -356,7 +356,7 @@ public class GPAManagementPanel extends javax.swing.JPanel {
         });
 
         btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/new-icon-16.png"))); // NOI18N
-        btnNew.setText("Nhap Moi");
+        btnNew.setText("Nhập mới");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewActionPerformed(evt);
@@ -428,7 +428,7 @@ public class GPAManagementPanel extends javax.swing.JPanel {
             }
             else{
                 btnNewActionPerformed(null);
-                MessageDialogHelper.showMessageDialog(parentForm, "Thong bao", "Khong tim thay sinh vien");
+                MessageDialogHelper.showMessageDialog(parentForm, "Thông báo", "Không tìm thấy sinh viên");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -452,8 +452,8 @@ public class GPAManagementPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         StringBuilder sb = new StringBuilder();
-        DataValidator.ValidateEmpty(txtStudentID, sb, "MA SINH VIÊN KHONG DE TRONG");
-        DataValidator.ValidateEmpty(txtEnglish, sb, "TIENG ANH KHONG DE TRONG");
+        DataValidator.ValidateEmpty(txtStudentID, sb, "Chưa nhập mã sinh viên");
+        DataValidator.ValidateEmpty(txtEnglish, sb, "Thiếu điểm tiếng anh");
         if (sb.length() > 0) {
             MessageDialogHelper.showErrorDialog(parentForm, "Error", sb.toString());
             return;
@@ -467,23 +467,23 @@ public class GPAManagementPanel extends javax.swing.JPanel {
             
             BangDiemDao dao = new BangDiemDao();         
             if(dao.findByMaSinhVien(txtStudentID.getText())  != null ){
-                if (MessageDialogHelper.showConfirmDialog(parentForm, "Hoi", "Ban co muon cap nhat diem khong") == JOptionPane.NO_OPTION) {
+                if (MessageDialogHelper.showConfirmDialog(parentForm, "Hỏi", "Bạn có muốn nhập điểm không?") == JOptionPane.NO_OPTION) {
                     return;
                 }
                 if(dao.update(bd)){
-                    MessageDialogHelper.showMessageDialog(parentForm, "Thong bao", "Bang diem da duoc cap nhat");
+                    MessageDialogHelper.showMessageDialog(parentForm, "Thông báo", "Bảng điẻm đã được cập nhật");
                 }
                 else{
-                    MessageDialogHelper.showMessageDialog(parentForm, "Thong bao", "Khong the cap nhat bang diem");
+                    MessageDialogHelper.showMessageDialog(parentForm, "Thông báo", "Không thế cập nhật bảng điểm");
                 }
             
             }
             else{
                 if(dao.insert(bd)){
-                    MessageDialogHelper.showMessageDialog(parentForm, "Thong bao", "Diem da duoc luu");
+                    MessageDialogHelper.showMessageDialog(parentForm, "Thông báo", "Điểm đã được lưu");
                 }
                 else{
-                    MessageDialogHelper.showMessageDialog(parentForm, "Thong bao", "Khong the luu Diem");
+                    MessageDialogHelper.showMessageDialog(parentForm, "Thông báo", "Không thể lưu điểm");
             }
             }
             loadBangDiem();
@@ -517,21 +517,21 @@ public class GPAManagementPanel extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         try {
             if (txtStudentID.getText().equals("")) {
-                MessageDialogHelper.showMessageDialog(parentForm, "Eror", "Ma sinh vien can phai nhap");
+                MessageDialogHelper.showMessageDialog(parentForm, "Eror", "Chưa nhập mã sinh viên");
                 return;
             }
             
             BangDiemDao dao = new BangDiemDao();
             BangDiem bd = dao.findByMaSinhVien(txtStudentID.getText());
             if (bd == null) {
-                MessageDialogHelper.showMessageDialog(parentForm, "Error", "Ma sinh vien khong ton tai trong bang diem");
+                MessageDialogHelper.showMessageDialog(parentForm, "Error", "Mã sinh viên không tồn tại");
                 return;
             }
-            if (MessageDialogHelper.showConfirmDialog(parentForm, "Hoi", "Ban co muon xoa diem cua sinh vien hay khong") == JOptionPane.NO_OPTION) {
+            if (MessageDialogHelper.showConfirmDialog(parentForm, "Hỏi", "Bạn có muốn xoá bảng điểm sinh viên hay không") == JOptionPane.NO_OPTION) {
                 return;
             }
             if (dao.deleteByMaSinhVien(txtStudentID.getText())) {
-                MessageDialogHelper.showMessageDialog(parentForm, "Thong bao", "Diem cua sinh vien da duoc xoa");
+                MessageDialogHelper.showMessageDialog(parentForm, "Thông báo", "Điểm của sinh viên đã được xoá");
                 
             }
             loadBangDiem();
