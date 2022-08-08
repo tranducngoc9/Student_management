@@ -15,7 +15,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="99" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="He Thong"/>
+            <Property name="text" type="java.lang.String" value="H&#x1ec7; th&#x1ed1;ng"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnuLogout">
@@ -26,7 +26,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconset4/logout-icon-16.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Dang Xuat"/>
+                <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuLogoutActionPerformed"/>
@@ -42,7 +42,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconset4/Actions-edit-delete-icon-16.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Thoat"/>
+                <Property name="text" type="java.lang.String" value="Tho&#xe1;t"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ThoatActionPerformed"/>
@@ -54,7 +54,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnQuanLy">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Quan ly"/>
+            <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd;"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="muQLSV">
@@ -65,7 +65,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconset4/10207-man-student-light-skin-tone-icon-16.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Quan Ly Sinh Vien"/>
+                <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; sinh vi&#xea;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="muQLSVActionPerformed"/>
@@ -81,7 +81,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconset4/gpa-icon.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Quan Ly Diem"/>
+                <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; &#x111;i&#x1ec3;m"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuManageGPAActionPerformed"/>
@@ -91,7 +91,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="TroGiup">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tro Giup"/>
+            <Property name="text" type="java.lang.String" value="Tr&#x1ee3; gi&#xfa;p"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="NoiDung">
@@ -102,7 +102,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconset4/Actions-help-about-icon-16.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Noi Dung"/>
+                <Property name="text" type="java.lang.String" value="N&#x1ed9;i dung"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NoiDungActionPerformed"/>
@@ -118,7 +118,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/iconset4/Help-icon-16.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Gioi Thieu"/>
+                <Property name="text" type="java.lang.String" value="Gi&#x1edb;i thi&#x1ec7;u"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="gioithieuActionPerformed"/>
@@ -131,6 +131,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Ph&#x1ea7;n m&#x1ec1;m Qu&#x1ea3;n l&#xfd; sinh vi&#xea;n"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -189,7 +190,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconset4/logout-icon-32.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Dang Xuat"/>
+            <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
@@ -206,7 +207,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconset4/10207-man-student-light-skin-tone-icon-32.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Quan Ly Sinh Vien"/>
+            <Property name="text" type="java.lang.String" value="Qu&#xe1;n l&#xfd; sinh vi&#xea;n"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
@@ -222,7 +223,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconset4/gpa-icon-32.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Quan Ly Diem"/>
+            <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; &#x111;i&#x1ec3;m"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
@@ -238,7 +239,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/iconset4/Actions-help-about-icon-32.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Gioi Thieu"/>
+            <Property name="text" type="java.lang.String" value="Gi&#x1edb;i thi&#x1ec7;u"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>

@@ -24,7 +24,7 @@ public class QLSVPanel extends javax.swing.JPanel {
     
     private void initTable(){
         tbModel = new DefaultTableModel();
-        tbModel.setColumnIdentifiers(new String[]{"Ma Sinh Vien", "Ho Ten", "Email", "SoDT"," GioiTinh", "Dia Chi"}); // THiet lap ten cac cot
+        tbModel.setColumnIdentifiers(new String[]{"Mã sinh viên", "Họ và tên", "Email", "Số điện thoại","Giới tính", "Địa chỉ"}); // THiet lap ten cac cot
         tblStudent.setModel(tbModel); // Xet toi bang student
         
     }
@@ -83,7 +83,7 @@ public class QLSVPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(0, 51, 255));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Ma Sinh Vien:");
+        jLabel2.setText("Mã sinh viên");
 
         txtStudentID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,19 +93,19 @@ public class QLSVPanel extends javax.swing.JPanel {
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Ho Ten:");
+        jLabel3.setText("Họ và tên");
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Email:");
+        jLabel4.setText("Email");
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("So Dien Thoai:");
+        jLabel5.setText("Số điện thoại");
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Gioi Tinh:");
+        jLabel6.setText("GIới tính");
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Dia Chi:");
+        jLabel7.setText("Địa chỉ");
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +126,7 @@ public class QLSVPanel extends javax.swing.JPanel {
         rdbFemale.setBackground(new java.awt.Color(0, 51, 255));
         buttonGroup1.add(rdbFemale);
         rdbFemale.setForeground(new java.awt.Color(255, 255, 255));
-        rdbFemale.setText("Nu");
+        rdbFemale.setText("Nữ");
 
         txaAddress.setColumns(20);
         txaAddress.setRows(5);
@@ -158,7 +158,7 @@ public class QLSVPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(0, 51, 255));
 
         btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Save-icon.png"))); // NOI18N
-        btnSave.setText("Luu");
+        btnSave.setText("Lưu");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -166,7 +166,7 @@ public class QLSVPanel extends javax.swing.JPanel {
         });
 
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Actions-document-edit-icon-16.png"))); // NOI18N
-        btnUpdate.setText("Cap Nhat");
+        btnUpdate.setText("Cập nhật");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -174,7 +174,7 @@ public class QLSVPanel extends javax.swing.JPanel {
         });
 
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/Actions-edit-delete-icon-16.png"))); // NOI18N
-        btnDelete.setText("Xoa");
+        btnDelete.setText("Xoá");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -182,7 +182,7 @@ public class QLSVPanel extends javax.swing.JPanel {
         });
 
         btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconset4/new-icon-16.png"))); // NOI18N
-        btnNew.setText("Tao Moi");
+        btnNew.setText("Tạo mới");
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewActionPerformed(evt);
@@ -239,7 +239,7 @@ public class QLSVPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(15, 15, 15)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtPhone)
                                     .addGroup(layout.createSequentialGroup()
@@ -323,36 +323,36 @@ public class QLSVPanel extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // Kiem tra xem o co bi trong hay khong
         StringBuilder sb = new StringBuilder();
-        DataValidator.ValidateEmpty(txtStudentID, sb," Ma sv trong");
+        DataValidator.ValidateEmpty(txtStudentID, sb,"Chưa nhập mã sinh viên");
         if (sb.length() > 0) {
-            MessageDialogHelper.showErrorDialog(parentForm,"Thong bao!", sb.toString());
+            MessageDialogHelper.showErrorDialog(parentForm,"Thông báo!", sb.toString());
         }
-        if (MessageDialogHelper.showConfirmDialog(parentForm, "Hoi", "Ban co muon xoa hay khong?") == JOptionPane.NO_OPTION) {
+        if (MessageDialogHelper.showConfirmDialog(parentForm, "Hỏi", "Bạn có muốn xoá không?") == JOptionPane.NO_OPTION) {
             return;
         }
         try {
             SinhVienDao svdao = new SinhVienDao();
             //Chen vao database
             if( svdao.delete(txtStudentID.getText())){
-                MessageDialogHelper.showMessageDialog(parentForm, "Thong bao", "Da xoa thong tin sinh vien!");
+                MessageDialogHelper.showMessageDialog(parentForm, "Thông báo", "Đã xoá thông tin sinh viên!");
                 btnNewActionPerformed(evt);                //Xoa trang cac ô
                 loadDataToTable();   //Load lai bang
             }
             else{
-                MessageDialogHelper.showErrorDialog(parentForm, "Thong bao", "Chua duoc xoa do loi!");
+                MessageDialogHelper.showErrorDialog(parentForm, "Thông báo", "Lỗi! Chưa thể xoá được");
             }
         } catch (Exception e) {
-            MessageDialogHelper.showErrorDialog(parentForm, "Thong bao", e.getMessage());
+            MessageDialogHelper.showErrorDialog(parentForm, "Thông báo", e.getMessage());
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // Kiem tra xem o co bi trong hay khong
         StringBuilder sb = new StringBuilder();
-        DataValidator.ValidateEmpty(txtStudentID, sb," Ma sv trong!");
-        DataValidator.ValidateEmpty(txtName, sb, "Ten sv trong!");
+        DataValidator.ValidateEmpty(txtStudentID, sb,"Mã sinh viên trống!");
+        DataValidator.ValidateEmpty(txtName, sb, "Tên sinh viên trống!");
         if (sb.length() > 0) {
-            MessageDialogHelper.showErrorDialog(parentForm,"Thong bao!", sb.toString());
+            MessageDialogHelper.showErrorDialog(parentForm,"Thông báo!", sb.toString());
         }
         try {
             // Tao doi tuong sv cho phep luu thong tin nhap vao
@@ -367,27 +367,27 @@ public class QLSVPanel extends javax.swing.JPanel {
             SinhVienDao svdao = new SinhVienDao();
             //Chen vao database
             if( svdao.insert(sv) && !"".equals(txtStudentID.getText()) && !"".equals(txtName.getText())){
-                MessageDialogHelper.showMessageDialog(parentForm, "Thong bao!", "Sinh vien da duoc luu!");
+                MessageDialogHelper.showMessageDialog(parentForm, "Thông báo!", "Sinh viên đã được lưu!");
                 loadDataToTable(); // Load lai bang
             }
             else{
-                MessageDialogHelper.showErrorDialog(parentForm, "Thong bao!", "Sinh vien chua duoc them do loi!");
+                MessageDialogHelper.showErrorDialog(parentForm, "Thông báo!", "Lỗi! Sinh viên chưa được thêm");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            MessageDialogHelper.showErrorDialog(parentForm, "Thong bao!", e.getMessage());
+            MessageDialogHelper.showErrorDialog(parentForm, "Thông báo!", e.getMessage());
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // Kiem tra xem o co bi trong hay khong
         StringBuilder sb = new StringBuilder();
-        DataValidator.ValidateEmpty(txtStudentID, sb," Ma sv trong");
-        DataValidator.ValidateEmpty(txtName, sb, "Ten sv trong");
+        DataValidator.ValidateEmpty(txtStudentID, sb,"Mã sinh viên trống");
+        DataValidator.ValidateEmpty(txtName, sb, "Tên sinh viên trống");
         if (sb.length() > 0) {
-            MessageDialogHelper.showErrorDialog(parentForm,"Thong bao!", sb.toString());
+            MessageDialogHelper.showErrorDialog(parentForm,"Thông báo!", sb.toString());
         }
-        if (MessageDialogHelper.showConfirmDialog(parentForm, "Hoi", "Ban co muon cap nhat hay khong?") == JOptionPane.NO_OPTION) {
+        if (MessageDialogHelper.showConfirmDialog(parentForm, "Hỏi", "Bạn có muốn cập nhật không?") == JOptionPane.NO_OPTION) {
             return;
         }
         try {
@@ -403,14 +403,14 @@ public class QLSVPanel extends javax.swing.JPanel {
             SinhVienDao svdao = new SinhVienDao();
             //Chen vao database
             if( svdao.update(sv)){
-                MessageDialogHelper.showMessageDialog(parentForm, "Thong bao", "Da cap nhat thong tin sinh vien!");
+                MessageDialogHelper.showMessageDialog(parentForm, "Thông báo", "Đã cập nhật thông tin sinh viên!");
                 loadDataToTable(); // Load lai bang
             }
             else{
-                MessageDialogHelper.showErrorDialog(parentForm, "Thong bao", "Chua duoc cap nhat do loi!");
+                MessageDialogHelper.showErrorDialog(parentForm, "Thông báo", "Lỗi! Chưa thể cập nhật!");
             }
         } catch (Exception e) {
-            MessageDialogHelper.showErrorDialog(parentForm, "Thong bao", e.getMessage());
+            MessageDialogHelper.showErrorDialog(parentForm, "Thông báo", e.getMessage());
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
     // Clisk 1 dong tren bang thi nó se hien thong tin len cac thanh dien
@@ -439,7 +439,7 @@ public class QLSVPanel extends javax.swing.JPanel {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            MessageDialogHelper.showErrorDialog(parentForm, "Thong bao", e.getMessage());
+            MessageDialogHelper.showErrorDialog(parentForm, "Thông báo", e.getMessage());
         }
     }//GEN-LAST:event_tblStudentMouseClicked
 
