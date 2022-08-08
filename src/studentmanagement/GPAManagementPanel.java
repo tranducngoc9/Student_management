@@ -24,7 +24,7 @@ public class GPAManagementPanel extends javax.swing.JPanel {
     private void iniTable(){
         tblModel = new DefaultTableModel();
         tblModel.setColumnIdentifiers(new String[]{
-            "Mã sinh viên", "Toán", "Văn", "Tiếng Anh", "Diểm trung bình"});
+            "Mã sinh viên", "Toán", "Văn", "Tiếng Anh", "Điểm trung bình"});
         
         tblGPA.setModel(tblModel);
     }

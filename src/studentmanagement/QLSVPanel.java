@@ -371,7 +371,7 @@ public class QLSVPanel extends javax.swing.JPanel {
                 loadDataToTable(); // Load lai bang
             }
             else{
-                MessageDialogHelper.showErrorDialog(parentForm, "Thông báo!", "Sinh vien chua duoc them do loi!");
+                MessageDialogHelper.showErrorDialog(parentForm, "Thông báo!", "Lỗi! Sinh viên chưa được thêm");
             }
         } catch (Exception e) {
             e.printStackTrace();
